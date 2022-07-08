@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AC8906C2878C1750073A181 /* MouseHouseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8906B2878C1750073A181 /* MouseHouseApp.swift */; };
+		4AC8906E2878C1750073A181 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8906D2878C1750073A181 /* ContentView.swift */; };
+		4AC890702878C1760073A181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC8906F2878C1760073A181 /* Assets.xcassets */; };
+		4AC890732878C1760073A181 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC890722878C1760073A181 /* Preview Assets.xcassets */; };
+		4AC8907E2878C1760073A181 /* MouseHouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8907D2878C1760073A181 /* MouseHouseTests.swift */; };
+		4AC890882878C1760073A181 /* MouseHouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC890872878C1760073A181 /* MouseHouseUITests.swift */; };
+		4AC8908A2878C1760073A181 /* MouseHouseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC890892878C1760073A181 /* MouseHouseUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AC8907A2878C1760073A181 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AC890602878C1750073A181 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AC890672878C1750073A181;
+			remoteInfo = MouseHouse;
+		};
+		4AC890842878C1760073A181 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AC890602878C1750073A181 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AC890672878C1750073A181;
+			remoteInfo = MouseHouse;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AC890682878C1750073A181 /* MouseHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MouseHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC8906B2878C1750073A181 /* MouseHouseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseHouseApp.swift; sourceTree = "<group>"; };
+		4AC8906D2878C1750073A181 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4AC8906F2878C1760073A181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AC890722878C1760073A181 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4AC890742878C1760073A181 /* MouseHouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MouseHouse.entitlements; sourceTree = "<group>"; };
+		4AC890792878C1760073A181 /* MouseHouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MouseHouseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC8907D2878C1760073A181 /* MouseHouseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseHouseTests.swift; sourceTree = "<group>"; };
+		4AC890832878C1760073A181 /* MouseHouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MouseHouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC890872878C1760073A181 /* MouseHouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseHouseUITests.swift; sourceTree = "<group>"; };
+		4AC890892878C1760073A181 /* MouseHouseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseHouseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AC890652878C1750073A181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC890762878C1760073A181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC890802878C1760073A181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AC8905F2878C1750073A181 = {
+			isa = PBXGroup;
+			children = (
+				4AC8906A2878C1750073A181 /* MouseHouse */,
+				4AC8907C2878C1760073A181 /* MouseHouseTests */,
+				4AC890862878C1760073A181 /* MouseHouseUITests */,
+				4AC890692878C1750073A181 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AC890692878C1750073A181 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AC890682878C1750073A181 /* MouseHouse.app */,
+				4AC890792878C1760073A181 /* MouseHouseTests.xctest */,
+				4AC890832878C1760073A181 /* MouseHouseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AC8906A2878C1750073A181 /* MouseHouse */ = {
+			isa = PBXGroup;
+			children = (
+				4AC8906B2878C1750073A181 /* MouseHouseApp.swift */,
+				4AC8906D2878C1750073A181 /* ContentView.swift */,
+				4AC8906F2878C1760073A181 /* Assets.xcassets */,
+				4AC890742878C1760073A181 /* MouseHouse.entitlements */,
+				4AC890712878C1760073A181 /* Preview Content */,
+			);
+			path = MouseHouse;
+			sourceTree = "<group>";
+		};
+		4AC890712878C1760073A181 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4AC890722878C1760073A181 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4AC8907C2878C1760073A181 /* MouseHouseTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AC8907D2878C1760073A181 /* MouseHouseTests.swift */,
+			);
+			path = MouseHouseTests;
+			sourceTree = "<group>";
+		};
+		4AC890862878C1760073A181 /* MouseHouseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4AC890872878C1760073A181 /* MouseHouseUITests.swift */,
+				4AC890892878C1760073A181 /* MouseHouseUITestsLaunchTests.swift */,
+			);
+			path = MouseHouseUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AC890672878C1750073A181 /* MouseHouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC8908D2878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouse" */;
+			buildPhases = (
+				4AC890642878C1750073A181 /* Sources */,
+				4AC890652878C1750073A181 /* Frameworks */,
+				4AC890662878C1750073A181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MouseHouse;
+			productName = MouseHouse;
+			productReference = 4AC890682878C1750073A181 /* MouseHouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AC890782878C1760073A181 /* MouseHouseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC890902878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouseTests" */;
+			buildPhases = (
+				4AC890752878C1760073A181 /* Sources */,
+				4AC890762878C1760073A181 /* Frameworks */,
+				4AC890772878C1760073A181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AC8907B2878C1760073A181 /* PBXTargetDependency */,
+			);
+			name = MouseHouseTests;
+			productName = MouseHouseTests;
+			productReference = 4AC890792878C1760073A181 /* MouseHouseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4AC890822878C1760073A181 /* MouseHouseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC890932878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouseUITests" */;
+			buildPhases = (
+				4AC8907F2878C1760073A181 /* Sources */,
+				4AC890802878C1760073A181 /* Frameworks */,
+				4AC890812878C1760073A181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AC890852878C1760073A181 /* PBXTargetDependency */,
+			);
+			name = MouseHouseUITests;
+			productName = MouseHouseUITests;
+			productReference = 4AC890832878C1760073A181 /* MouseHouseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AC890602878C1750073A181 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					4AC890672878C1750073A181 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					4AC890782878C1760073A181 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 4AC890672878C1750073A181;
+					};
+					4AC890822878C1760073A181 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 4AC890672878C1750073A181;
+					};
+				};
+			};
+			buildConfigurationList = 4AC890632878C1750073A181 /* Build configuration list for PBXProject "MouseHouse" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AC8905F2878C1750073A181;
+			productRefGroup = 4AC890692878C1750073A181 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AC890672878C1750073A181 /* MouseHouse */,
+				4AC890782878C1760073A181 /* MouseHouseTests */,
+				4AC890822878C1760073A181 /* MouseHouseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AC890662878C1750073A181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC890732878C1760073A181 /* Preview Assets.xcassets in Resources */,
+				4AC890702878C1760073A181 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC890772878C1760073A181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC890812878C1760073A181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AC890642878C1750073A181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC8906E2878C1750073A181 /* ContentView.swift in Sources */,
+				4AC8906C2878C1750073A181 /* MouseHouseApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC890752878C1760073A181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC8907E2878C1760073A181 /* MouseHouseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC8907F2878C1760073A181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC890882878C1760073A181 /* MouseHouseUITests.swift in Sources */,
+				4AC8908A2878C1760073A181 /* MouseHouseUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AC8907B2878C1760073A181 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AC890672878C1750073A181 /* MouseHouse */;
+			targetProxy = 4AC8907A2878C1760073A181 /* PBXContainerItemProxy */;
+		};
+		4AC890852878C1760073A181 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AC890672878C1750073A181 /* MouseHouse */;
+			targetProxy = 4AC890842878C1760073A181 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4AC8908B2878C1760073A181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AC8908C2878C1760073A181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4AC8908E2878C1760073A181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MouseHouse/MouseHouse.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MouseHouse/Preview Content\"";
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4AC8908F2878C1760073A181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MouseHouse/MouseHouse.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MouseHouse/Preview Content\"";
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4AC890912878C1760073A181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MouseHouse.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MouseHouse";
+			};
+			name = Debug;
+		};
+		4AC890922878C1760073A181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MouseHouse.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MouseHouse";
+			};
+			name = Release;
+		};
+		4AC890942878C1760073A181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MouseHouse;
+			};
+			name = Debug;
+		};
+		4AC890952878C1760073A181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MouseHouse;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AC890632878C1750073A181 /* Build configuration list for PBXProject "MouseHouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC8908B2878C1760073A181 /* Debug */,
+				4AC8908C2878C1760073A181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC8908D2878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC8908E2878C1760073A181 /* Debug */,
+				4AC8908F2878C1760073A181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC890902878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC890912878C1760073A181 /* Debug */,
+				4AC890922878C1760073A181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC890932878C1760073A181 /* Build configuration list for PBXNativeTarget "MouseHouseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC890942878C1760073A181 /* Debug */,
+				4AC890952878C1760073A181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AC890602878C1750073A181 /* Project object */;
+}
