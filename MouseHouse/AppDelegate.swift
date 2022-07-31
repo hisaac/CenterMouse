@@ -2,10 +2,9 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-	var window: NSWindow?
-	var mouseMover: MouseMover?
+	var eventMonitor: EventMonitor?
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		mouseMover = MouseMover()
+		eventMonitor = EventMonitor()
 	}
 }
