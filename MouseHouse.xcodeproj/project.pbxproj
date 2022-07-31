@@ -54,14 +54,30 @@
 		4A88A6B12896290000F63365 /* MouseHouse */ = {
 			isa = PBXGroup;
 			children = (
+				4AA764162896DCDC000C6A49 /* Resources */,
+				4AA764172896DCDF000C6A49 /* Sources */,
+			);
+			path = MouseHouse;
+			sourceTree = "<group>";
+		};
+		4AA764162896DCDC000C6A49 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A88A6B42896290000F63365 /* Assets.xcassets */,
+				4A88A6B62896290000F63365 /* MainMenu.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4AA764172896DCDF000C6A49 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
 				4A88A6B22896290000F63365 /* AppDelegate.swift */,
 				4A1A0715289629680023B5AE /* EventMonitor.swift */,
 				4AA764142896DC61000C6A49 /* MouseMover.swift */,
-				4A88A6B42896290000F63365 /* Assets.xcassets */,
-				4A88A6B62896290000F63365 /* MainMenu.xib */,
 				4A88A6B92896290000F63365 /* MouseHouse.entitlements */,
 			);
-			path = MouseHouse;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,13 +288,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MouseHouse/MouseHouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MouseHouse/Sources/MouseHouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -286,6 +303,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,13 +317,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MouseHouse/MouseHouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MouseHouse/Sources/MouseHouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -313,6 +332,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.MouseHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
