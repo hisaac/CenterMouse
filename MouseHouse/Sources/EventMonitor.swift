@@ -33,7 +33,7 @@ extension NSNotification.Name {
 	static let screenSaverDidLaunch = NSNotification.Name("com.apple.screensaver.didlaunch")
 
 	// These Don't Work
-	static let screenIsLocked = NSNotification.Name("com.apple.screenIsLocked")
-	static let screenSaverDidStart = NSNotification.Name("com.apple.screensaver.didstart")
-	static let screenSaverDidStop = NSNotification.Name("com.apple.screensaver.didstop")
+//	static let screenIsLocked = NSNotification.Name("com.apple.screenIsLocked")
+//	static let screenSaverDidStart = NSNotification.Name("com.apple.screensaver.didstart")
+//	static let screenSaverDidStop = NSNotification.Name("com.apple.screensaver.didstop")
 }

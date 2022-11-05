@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0ED9452899B4EC00C64485 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ED9442899B4EC00C64485 /* Settings.swift */; };
+		4A0ED9472899B95100C64485 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ED9462899B95000C64485 /* LocalizedStrings.swift */; };
 		4A1A0716289629680023B5AE /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1A0715289629680023B5AE /* EventMonitor.swift */; };
 		4A88A6B32896290000F63365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88A6B22896290000F63365 /* AppDelegate.swift */; };
 		4A88A6B52896290000F63365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A88A6B42896290000F63365 /* Assets.xcassets */; };
@@ -17,9 +19,12 @@
 		4AE9B9032896EDC300F8100D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9022896EDC300F8100D /* LaunchAtLogin */; };
 		4AE9B9062896EDD600F8100D /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9052896EDD600F8100D /* Defaults */; };
 		4AE9B9092896EDE700F8100D /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9082896EDE700F8100D /* Preferences */; };
+		4AF0685F2905CD2F0088F8A9 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0ED9442899B4EC00C64485 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4A0ED9462899B95000C64485 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		4A1A0715289629680023B5AE /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		4A88A6AF2896290000F63365 /* MouseHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MouseHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A88A6B22896290000F63365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		4A88A6B92896290000F63365 /* MouseHouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MouseHouse.entitlements; sourceTree = "<group>"; };
 		4AA764142896DC61000C6A49 /* MouseMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseMover.swift; sourceTree = "<group>"; };
 		4AA764182896DE4A000C6A49 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +88,24 @@
 		4AA764172896DCDF000C6A49 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4AF0685D2905CD1D0088F8A9 /* Preferences */,
 				4A88A6B22896290000F63365 /* AppDelegate.swift */,
 				4AA764182896DE4A000C6A49 /* StatusItemController.swift */,
+				4A0ED9462899B95000C64485 /* LocalizedStrings.swift */,
 				4A1A0715289629680023B5AE /* EventMonitor.swift */,
 				4AA764142896DC61000C6A49 /* MouseMover.swift */,
 				4A88A6B92896290000F63365 /* MouseHouse.entitlements */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		4AF0685D2905CD1D0088F8A9 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				4A0ED9442899B4EC00C64485 /* Settings.swift */,
+				4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +163,7 @@
 				4AE9B9012896EDC300F8100D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */,
 				4AE9B9072896EDE700F8100D /* XCRemoteSwiftPackageReference "Preferences" */,
+				4AADCC63289B4AFB00F1D08F /* XCRemoteSwiftPackageReference "SwiftSafeURL" */,
 			);
 			productRefGroup = 4A88A6B02896290000F63365 /* Products */;
 			projectDirPath = "";
@@ -177,6 +195,9 @@
 				4AA764152896DC61000C6A49 /* MouseMover.swift in Sources */,
 				4A88A6B32896290000F63365 /* AppDelegate.swift in Sources */,
 				4A1A0716289629680023B5AE /* EventMonitor.swift in Sources */,
+				4A0ED9472899B95100C64485 /* LocalizedStrings.swift in Sources */,
+				4AF0685F2905CD2F0088F8A9 /* GeneralPreferencesView.swift in Sources */,
+				4A0ED9452899B4EC00C64485 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +410,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4AADCC63289B4AFB00F1D08F /* XCRemoteSwiftPackageReference "SwiftSafeURL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/baguio/SwiftSafeURL";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.2;
+			};
+		};
 		4AE9B8FE2896EDAB00F8100D /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
