@@ -43,14 +43,6 @@ final class StatusItemController: NSObject {
 				self?.mouseMovingMenuItem.state = .off
 			}
 		}.tieToLifetime(of: self)
-
-		Defaults.observe(.systemEventMonitoringEnabled) { [weak self] change in
-			if change.newValue == true {
-				self?.systemEventMonitoringMenuItem.state = .on
-			} else {
-				self?.systemEventMonitoringMenuItem.state = .off
-			}
-		}.tieToLifetime(of: self)
 	}
 
 	private func buildMenu() -> NSMenu {
@@ -64,7 +56,6 @@ final class StatusItemController: NSObject {
 			),
 			NSMenuItem.separator(),
 			mouseMovingMenuItem,
-			systemEventMonitoringMenuItem,
 			NSMenuItem.separator(),
 			debugMenuItem,
 			NSMenuItem.separator(),
@@ -105,14 +96,6 @@ final class StatusItemController: NSObject {
 		)
 	}()
 
-	private lazy var systemEventMonitoringMenuItem: NSMenuItem = {
-		return NSMenuItem(
-			title: "Monitor System Events",
-			action: #selector(toggleSystemEventMonitoring),
-			target: self
-		)
-	}()
-
 	// MARK: - Menu Item Actions
 
 	@objc
@@ -135,11 +118,6 @@ final class StatusItemController: NSObject {
 	@objc
 	private func toggleMouseMovingEnabled() {
 		Defaults[.mouseMovingEnabled].toggle()
-	}
-
-	@objc
-	private func toggleSystemEventMonitoring() {
-		Defaults[.systemEventMonitoringEnabled].toggle()
 	}
 
 	// MARK: - Mouse Click Handling

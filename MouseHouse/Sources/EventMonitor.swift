@@ -1,5 +1,6 @@
 import Cocoa
 import Combine
+import KeyboardShortcuts
 
 final class EventMonitor {
 	var subscriptions = Set<AnyCancellable>()
@@ -19,6 +20,10 @@ final class EventMonitor {
 			.publisher(for: .screenSaverDidLaunch)
 			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
 			.store(in: &subscriptions)
+
+		KeyboardShortcuts.onKeyUp(for: .moveMouseToHouse) {
+			MouseMover.moveMouseToCenterOfMainScreen()
+		}
 	}
 
 	deinit {

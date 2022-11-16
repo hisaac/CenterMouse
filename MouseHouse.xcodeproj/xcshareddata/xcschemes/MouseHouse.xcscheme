@@ -45,7 +45,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Kill other app instances"
-               scriptText = "echo $(pkill &quot;$EXECUTABLE_NAME&quot;) &gt; /dev/null&#10;">
+               scriptText = "echo $(pkill MouseHouse) &gt; /dev/null&#10;">
             </ActionContent>
          </ExecutionAction>
       </PreActions>
