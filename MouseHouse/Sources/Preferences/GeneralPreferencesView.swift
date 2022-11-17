@@ -37,20 +37,20 @@ struct GeneralPreferencesView: View {
 					.preferenceDescription()
 			}
 		}
-		VStack(alignment: .leading) {
+		VStack(alignment: .trailing) {
 			HStack {
-				Button("Quit") {
-					NSApp.terminate(nil)
-				}
 				Button("About") {
 					NSApp.orderFrontStandardAboutPanel(
 						options: [.credits: LocalizedStrings.credits]
 					)
 				}
+				Button("Quit") {
+					NSApp.terminate(nil)
+				}
 			}
 			Text("You can safely close this window, and MouseHouse will continue to run in the background")
 				.preferenceDescription()
-		}.padding()
+		}.padding([.leading, .trailing, .bottom])
 	}
 }
 

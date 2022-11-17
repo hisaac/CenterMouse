@@ -24,9 +24,6 @@ enum LocalizedStrings {
 			name: "KeyboardShortcuts", urlString: "https://github.com/sindresorhus/KeyboardShortcuts"
 		))
 		creditsString.append(openSourceLibrary(
-			name: "LaunchAtLogin", urlString: "https://github.com/sindresorhus/LaunchAtLogin"
-		))
-		creditsString.append(openSourceLibrary(
 			name: "Preferences", urlString: "https://github.com/sindresorhus/Preferences"
 		))
 

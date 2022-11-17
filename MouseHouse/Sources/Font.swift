@@ -12,91 +12,47 @@ public typealias FontDescriptor = UIFontDescriptor
 
 public extension Font {
 	static var caption2: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize - 6)
-		#else
 		.preferredFont(forTextStyle: .caption2)
-		#endif
 	}
 
-	static var caption: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize - 5)
-		#else
+	static var caption1: Font {
 		.preferredFont(forTextStyle: .caption1)
-		#endif
 	}
 
 	static var footnote: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize - 4)
-		#else
 		.preferredFont(forTextStyle: .footnote)
-		#endif
 	}
 
 	static var callout: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize - 1)
-		#else
 		.preferredFont(forTextStyle: .callout)
-		#endif
 	}
 
 	static var body: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize)
-		#else
 		.preferredFont(forTextStyle: .body)
-		#endif
 	}
 
 	static var subheadline: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize - 2)
-		#else
 		.preferredFont(forTextStyle: .subheadline)
-		#endif
 	}
 
 	static var headline: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize, weight: .semibold)
-		#else
 		.preferredFont(forTextStyle: .headline)
-		#endif
 	}
 
 	static var title3: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize + 3)
-		#else
 		.preferredFont(forTextStyle: .title3)
-		#endif
 	}
 
 	static var title2: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize + 5)
-		#else
 		.preferredFont(forTextStyle: .title2)
-		#endif
 	}
 
-	static var title: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize + 11)
-		#else
+	static var title1: Font {
 		.preferredFont(forTextStyle: .title1)
-		#endif
 	}
 
 	static var largeTitle: Font {
-		#if os(macOS)
-		.systemFont(ofSize: Font.systemFontSize + 17)
-		#else
 		.preferredFont(forTextStyle: .largeTitle)
-		#endif
 	}
 
 	static func monospaced() -> Font {

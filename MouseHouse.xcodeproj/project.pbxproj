@@ -16,7 +16,6 @@
 		4A88A6B82896290000F63365 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A88A6B62896290000F63365 /* MainMenu.xib */; };
 		4AA764152896DC61000C6A49 /* MouseMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA764142896DC61000C6A49 /* MouseMover.swift */; };
 		4AE9B9002896EDAB00F8100D /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B8FF2896EDAB00F8100D /* KeyboardShortcuts */; };
-		4AE9B9032896EDC300F8100D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9022896EDC300F8100D /* LaunchAtLogin */; };
 		4AE9B9062896EDD600F8100D /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9052896EDD600F8100D /* Defaults */; };
 		4AE9B9092896EDE700F8100D /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9082896EDE700F8100D /* Preferences */; };
 		4AF0685F2905CD2F0088F8A9 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */; };
@@ -43,7 +42,6 @@
 			files = (
 				4AE9B9062896EDD600F8100D /* Defaults in Frameworks */,
 				4AE9B9092896EDE700F8100D /* Preferences in Frameworks */,
-				4AE9B9032896EDC300F8100D /* LaunchAtLogin in Frameworks */,
 				4AE9B9002896EDAB00F8100D /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +117,7 @@
 				4A88A6AB2896290000F63365 /* Sources */,
 				4A88A6AC2896290000F63365 /* Frameworks */,
 				4A88A6AD2896290000F63365 /* Resources */,
+				4A2A19392926D6B90060301A /* Copy LaunchAtLogin Helper */,
 			);
 			buildRules = (
 			);
@@ -127,7 +126,6 @@
 			name = MouseHouse;
 			packageProductDependencies = (
 				4AE9B8FF2896EDAB00F8100D /* KeyboardShortcuts */,
-				4AE9B9022896EDC300F8100D /* LaunchAtLogin */,
 				4AE9B9052896EDD600F8100D /* Defaults */,
 				4AE9B9082896EDE700F8100D /* Preferences */,
 			);
@@ -161,7 +159,6 @@
 			mainGroup = 4A88A6A62896290000F63365;
 			packageReferences = (
 				4AE9B8FE2896EDAB00F8100D /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
-				4AE9B9012896EDC300F8100D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */,
 				4AE9B9072896EDE700F8100D /* XCRemoteSwiftPackageReference "Preferences" */,
 			);
@@ -187,6 +184,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A2A19392926D6B90060301A /* Copy LaunchAtLogin Helper */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy LaunchAtLogin Helper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
 		4AE5086829254E2F006B3CA5 /* Print Build Settings to Log */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -447,14 +463,6 @@
 				minimumVersion = 1.7.1;
 			};
 		};
-		4AE9B9012896EDC300F8100D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
 		4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
@@ -478,11 +486,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4AE9B8FE2896EDAB00F8100D /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
-		};
-		4AE9B9022896EDC300F8100D /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AE9B9012896EDC300F8100D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
-			productName = LaunchAtLogin;
 		};
 		4AE9B9052896EDD600F8100D /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
