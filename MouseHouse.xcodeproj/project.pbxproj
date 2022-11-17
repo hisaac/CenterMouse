@@ -117,7 +117,6 @@
 				4A88A6AB2896290000F63365 /* Sources */,
 				4A88A6AC2896290000F63365 /* Frameworks */,
 				4A88A6AD2896290000F63365 /* Resources */,
-				4A2A19392926D6B90060301A /* Copy LaunchAtLogin Helper */,
 			);
 			buildRules = (
 			);
@@ -184,25 +183,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A2A19392926D6B90060301A /* Copy LaunchAtLogin Helper */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy LaunchAtLogin Helper";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
-		};
 		4AE5086829254E2F006B3CA5 /* Print Build Settings to Log */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
