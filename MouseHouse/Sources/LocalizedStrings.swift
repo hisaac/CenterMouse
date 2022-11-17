@@ -1,34 +1,38 @@
 import Cocoa
 
 enum LocalizedStrings {
-	/// Localized version of "Enabled"
-	/// For use as the title for the "Enabled" menu item
-	static let enabledMenuItemTitle = NSLocalizedString(
-		"enabledMenuItemTitle",
-		value: "Mouse Moving Enabled",
-		comment: #"Title for the "Enabled" menu item"#
-	)
+	static var credits: NSAttributedString = {
+		guard
+			let creditsMarkdownFileURL = Bundle.main.url(forResource: "Credits", withExtension: "md"),
+			let creditsMarkdownString = try? NSAttributedString(
+				contentsOf: creditsMarkdownFileURL,
+				options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+			)
+		else {
+			return NSAttributedString()
+		}
+		return creditsMarkdownString
+	}()
 
-	// MARK: - Version Number
+	static var creds: NSAttributedString = {
+//		let titleFont = NSFont.preferredFont(forTextStyle: .title2)
+//		let headlineFont = NSFont.preferredFont(forTextStyle: .headline)
+//		let italicHeadlineFont = NSFont(descriptor: headlineFont.fontDescriptor.withSymbolicTraits(.italic), size: headlineFont.pointSize)
+//
+//		var creditsString = NSMutableAttributedString()
+//		creditsString.append(NSAttributedString(string: "Credits\n", attributes: [.font: titleFont]))
+//
+//		creditsString.append(NSAttributedString(string: "Programming\n", attributes: [.font: italicHeadlineFont]))
+//		creditsString.append(NSAttributedString(string: "\tIsaac Halvorson\n"))
+//
+//		creditsString.append(NSAttributedString(string: "App Icon\n", attributes: [.font: italicHeadlineFont]))
+//		creditsString.append(NSAttributedString(string: "\tMatt Pennig\n"))
+//
+//		creditsString.append(NSAttributedString(string: "QA Testing\n", attributes: [.font: italicHeadlineFont]))
+//		creditsString.append(NSAttributedString(string: "\tEli Mellen\n"))
 
-	/// Localized version of the word "Version"
-	/// For use in representing the app's version number
-	static let versionTitle = NSLocalizedString(
-		"versionTitle",
-		value: "Version",
-		comment: "The word for 'Version'"
-	)
+		var creditsString = NSMutableAttributedString()
 
-	/// Localized version of the app's version number
-	/// Formatted as: "Version 1.0.1"
-	static var appVersion: String {
-		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?"
-		return "\(versionTitle) \(versionNumber)"
-	}
-
-	/// Get a system localized string
-	/// Use https://itunes.apple.com/no/app/system-strings/id570467776 to find strings
-	static func localizedString(forKey key: String) -> String {
-		return Bundle(for: NSApplication.self).localizedString(forKey: key, value: nil, table: nil)
-	}
+		return creditsString
+	}()
 }

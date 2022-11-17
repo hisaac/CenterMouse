@@ -8,17 +8,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	var window: NSWindow?
 	var eventMonitor: EventMonitor?
-	var statusItemController: StatusItemController?
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		eventMonitor = EventMonitor()
+		openPreferencesWindow()
+	}
 
-		statusItemController = StatusItemController()
-		statusItemController?.delegate = self
+	func applicationDidBecomeActive(_ notification: Notification) {
+		openPreferencesWindow()
+	}
+
+	private func openPreferencesWindow() {
+		// Works around an annoyance where the app always comes to the foreground when
+		// being previewed in Xcode's SwiftUI Canvas.
+		if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+			preferencesWindowController.show()
+		}
 	}
 
 	lazy var preferencesWindowController: PreferencesWindowController = {
-		let controller = PreferencesWindowController(panes: [
+		return PreferencesWindowController(panes: [
 			Preferences.Pane(
 				identifier: .general,
 				title: "General",
@@ -29,17 +38,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				contentView: { GeneralPreferencesView() }
 			)
 		])
-		controller.hidesToolbarForSingleItem = false
-		return controller
 	}()
-}
-
-protocol PreferencesWindowDelegate: AnyObject {
-	func openPreferencesWindow()
-}
-
-extension AppDelegate: PreferencesWindowDelegate {
-	func openPreferencesWindow() {
-		preferencesWindowController.show()
-	}
 }
