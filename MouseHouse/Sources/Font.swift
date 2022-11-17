@@ -175,6 +175,12 @@ public extension Font {
 		#endif
 	}
 
+	// 2022-11-17 - Added by Isaac Halvorson
+	func boldAndItalic() -> Font {
+		let descriptor = fontDescriptor.withSymbolicTraits([.bold, .italic])
+		return Font(descriptor: descriptor, size: 0)!
+	}
+
 	func leading(_ leading: Leading) -> Font {
 		#if os(macOS)
 		let descriptor = fontDescriptor.withSymbolicTraits(leading == .loose ? .looseLeading : .tightLeading)

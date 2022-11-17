@@ -12,6 +12,11 @@ final class EventMonitor {
 			.store(in: &subscriptions)
 
 		DistributedNotificationCenter.default()
+			.publisher(for: .screenIsLocked)
+			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
+			.store(in: &subscriptions)
+
+		DistributedNotificationCenter.default()
 			.publisher(for: .screenIsUnlocked)
 			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
 			.store(in: &subscriptions)
@@ -32,13 +37,13 @@ final class EventMonitor {
 }
 
 extension NSNotification.Name {
-	// These Work
+	// These do work
 	static let deviceDidWake = NSWorkspace.didWakeNotification
+	static let screenIsLocked = NSNotification.Name("com.apple.screenIsLocked")
 	static let screenIsUnlocked = NSNotification.Name("com.apple.screenIsUnlocked")
 	static let screenSaverDidLaunch = NSNotification.Name("com.apple.screensaver.didlaunch")
 
-	// These Don't Work
-//	static let screenIsLocked = NSNotification.Name("com.apple.screenIsLocked")
-//	static let screenSaverDidStart = NSNotification.Name("com.apple.screensaver.didstart")
-//	static let screenSaverDidStop = NSNotification.Name("com.apple.screensaver.didstop")
+	// These don't seem to work
+	static let screenSaverDidStart = NSNotification.Name("com.apple.screensaver.didstart")
+	static let screenSaverDidStop = NSNotification.Name("com.apple.screensaver.didstop")
 }

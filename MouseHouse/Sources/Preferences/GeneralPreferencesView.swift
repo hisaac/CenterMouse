@@ -22,9 +22,10 @@ struct GeneralPreferencesView: View {
 				Toggle("Move mouse on system events", isOn: $systemEventMonitoringEnabled)
 				Group {
 					Text("System events include:")
-					Text("•  Waking from sleep")
-					Text("•  Unlocking the screen")
-					Text("•  Exiting the screen saver")
+					Text("\u{2022}  Waking from sleep")
+					Text("\u{2022}  Locking the screen")
+					Text("\u{2022}  Unlocking the screen")
+					Text("\u{2022}  Exiting the screen saver")
 				}.preferenceDescription()
 			}
 
@@ -32,22 +33,24 @@ struct GeneralPreferencesView: View {
 				Form {
 					KeyboardShortcuts.Recorder(for: .moveMouseToHouse)
 				}
-				Text("Define a global keyboard shortcut to move the mouse to the center of your main monitor")
+				Text("Define a global keyboard shortcut to move the mouse")
 					.preferenceDescription()
 			}
-			Preferences.Section(title: "", verticalAlignment: .center) {
-				HStack {
-					Button("Quit") {
-						NSApp.terminate(nil)
-					}
-					Button("About") {
-						NSApp.orderFrontStandardAboutPanel(
-							options: [.credits: LocalizedStrings.creds]
-						)
-					}
+		}
+		VStack(alignment: .leading) {
+			HStack {
+				Button("Quit") {
+					NSApp.terminate(nil)
+				}
+				Button("About") {
+					NSApp.orderFrontStandardAboutPanel(
+						options: [.credits: LocalizedStrings.credits]
+					)
 				}
 			}
-		}
+			Text("You can safely close this window, and MouseHouse will continue to run in the background")
+				.preferenceDescription()
+		}.padding()
 	}
 }
 
