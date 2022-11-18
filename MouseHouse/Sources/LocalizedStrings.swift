@@ -10,6 +10,7 @@ enum LocalizedStrings {
 		creditsString.append(
 			NSAttributedString(string: "Credits\n", attributes: [.font: titleFont])
 		)
+		creditsString.append(creditedPerson(name: "Eli Mellen", role: "Initial Idea"))
 		creditsString.append(creditedPerson(name: "Isaac Halvorson", role: "Programming"))
 		creditsString.append(creditedPerson(name: "Matt Pennig", role: "App Icon"))
 		creditsString.append(creditedPerson(name: "Eli Mellen", role: "QA Testing"))
