@@ -58,7 +58,7 @@ enum LocalizedStrings {
 			preconditionFailure("\(urlString) is not a valid URL")
 		}
 		let openSourceLibraryString = NSMutableAttributedString()
-		openSourceLibraryString.append(NSAttributedString("  \u{2022} "))
+		openSourceLibraryString.append(NSAttributedString(string: "  \u{2022} "))
 		openSourceLibraryString.append(
 			NSAttributedString(string: "\(name)\n", attributes: [.link: url])
 		)
