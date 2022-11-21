@@ -40,8 +40,12 @@ struct GeneralPreferencesView: View {
 		VStack(alignment: .trailing) {
 			HStack {
 				Button("About") {
+					
 					NSApp.orderFrontStandardAboutPanel(
-						options: [.credits: LocalizedStrings.credits]
+						options: [
+							.applicationIcon: NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath),
+							.credits: LocalizedStrings.credits
+						]
 					)
 				}
 				Button("Quit") {

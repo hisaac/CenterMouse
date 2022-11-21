@@ -12,8 +12,12 @@ enum LocalizedStrings {
 		)
 		creditsString.append(creditedPerson(name: "Eli Mellen", role: "Initial Idea"))
 		creditsString.append(creditedPerson(name: "Isaac Halvorson", role: "Programming"))
-		creditsString.append(creditedPerson(name: "Matt Pennig", role: "App Icon"))
 		creditsString.append(creditedPerson(name: "Eli Mellen", role: "QA Testing"))
+		creditsString.append(creditedPerson(
+			name: "Dila Yorgancı",
+			role: "App Icon",
+			link: "https://thenounproject.com/icon/click-home-815687/")
+		)
 
 		creditsString.append(
 			NSAttributedString(string: "\nOpen Source Libraries\n", attributes: [.font: titleFont])
@@ -31,13 +35,21 @@ enum LocalizedStrings {
 		return creditsString
 	}()
 
-	private static func creditedPerson(name: String, role: String) -> NSAttributedString {
+	private static func creditedPerson(name: String, role: String, link: String? = nil) -> NSAttributedString {
 		let creditedPersonString = NSMutableAttributedString()
 
 		creditedPersonString.append(
 			NSAttributedString(string: "\(role)\n", attributes: [.font: headlineFont])
 		)
-		creditedPersonString.append(NSAttributedString(string: "    \(name)\n"))
+
+		let nameString: NSAttributedString
+		if let link, let url = URL(string: link) {
+			nameString = NSAttributedString(string: "    \(name)\n", attributes: [.link: url])
+		} else {
+			nameString = NSAttributedString(string: "    \(name)\n")
+		}
+		creditedPersonString.append(nameString)
+
 		return creditedPersonString
 	}
 
