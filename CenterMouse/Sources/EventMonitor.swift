@@ -1,5 +1,6 @@
 import Cocoa
 import Combine
+import Defaults
 import KeyboardShortcuts
 
 final class EventMonitor {
@@ -26,9 +27,13 @@ final class EventMonitor {
 			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
 			.store(in: &subscriptions)
 
-		KeyboardShortcuts.onKeyUp(for: .moveMouseToHouse) {
+		KeyboardShortcuts.onKeyUp(for: .centerMousePointer) {
 			MouseMover.moveMouseToCenterOfMainScreen()
 		}
+
+		Defaults.publisher(.hideDockIcon)
+			.sink { Settings.setActivationPolicy(hideDockIcon: $0.newValue) }
+			.store(in: &subscriptions)
 	}
 
 	deinit {
