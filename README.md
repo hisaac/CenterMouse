@@ -6,4 +6,4 @@ This is helpful for those of us that have multiple monitors, making it easy and 
 
 CenterMouse is open source, and 100% free to download and use!
 
-- Download app: _coming soon_
+[Download the app from the Mac App Store](https://apps.apple.com/app/centermouse/id6444685140)
