@@ -1,42 +1,56 @@
 import AppKit
 import Defaults
-import Preferences
 import SwiftUI
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
 
-	var window: NSWindow?
-	var eventMonitor: EventMonitor?
+	private var window: NSWindow!
+	private var windowController: NSWindowController!
+
+	private var eventMonitor = EventMonitor()
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		eventMonitor = EventMonitor()
-		openPreferencesWindow()
+		window = NSWindow(
+			contentRect: NSZeroRect,
+			styleMask: [.closable, .titled],
+			backing: .buffered,
+			defer: true
+		)
+
+		window.title = "CenterMouse"
+		window.contentView = NSHostingView(rootView: SettingsView())
+		windowController = NSWindowController(window: window)
+
+		Settings.setActivationPolicy()
+
+		openSettingsWindow()
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
-		openPreferencesWindow()
+		openSettingsWindow()
 	}
 
-	private func openPreferencesWindow() {
+	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+		openSettingsWindow()
+		return true
+	}
+
+	@IBAction func settingsMenuItemActivated(_ sender: Any) {
+		openSettingsWindow()
+	}
+
+	func openSettingsWindow() {
 		// Works around an annoyance where the app always comes to the foreground when
 		// being previewed in Xcode's SwiftUI Canvas.
-		if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
-			preferencesWindowController.show()
+		guard
+			ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1"
+		else {
+			return
 		}
-	}
 
-	lazy var preferencesWindowController: PreferencesWindowController = {
-		return PreferencesWindowController(panes: [
-			Preferences.Pane(
-				identifier: .general,
-				title: "General",
-				toolbarIcon: NSImage(
-					systemSymbolName: "gearshape",
-					accessibilityDescription: "General Preferences"
-				)!,
-				contentView: { GeneralPreferencesView() }
-			)
-		])
-	}()
+		windowController.window?.center()
+		windowController.showWindow(self)
+		NSApp.activate(ignoringOtherApps: true)
+	}
 }

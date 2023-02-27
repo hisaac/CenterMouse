@@ -7,35 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A0ED9452899B4EC00C64485 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ED9442899B4EC00C64485 /* Settings.swift */; };
 		4A0ED9472899B95100C64485 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ED9462899B95000C64485 /* LocalizedStrings.swift */; };
 		4A1A0716289629680023B5AE /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1A0715289629680023B5AE /* EventMonitor.swift */; };
-		4A2BD5192926CAF70085E372 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BD5182926CAF70085E372 /* Font.swift */; };
 		4A88A6B32896290000F63365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88A6B22896290000F63365 /* AppDelegate.swift */; };
 		4A88A6B52896290000F63365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A88A6B42896290000F63365 /* Assets.xcassets */; };
 		4A88A6B82896290000F63365 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A88A6B62896290000F63365 /* MainMenu.xib */; };
 		4AA764152896DC61000C6A49 /* MouseMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA764142896DC61000C6A49 /* MouseMover.swift */; };
 		4AE9B9002896EDAB00F8100D /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B8FF2896EDAB00F8100D /* KeyboardShortcuts */; };
-		4AE9B9062896EDD600F8100D /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9052896EDD600F8100D /* Defaults */; };
-		4AE9B9092896EDE700F8100D /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE9B9082896EDE700F8100D /* Preferences */; };
-		4AF0685F2905CD2F0088F8A9 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */; };
 		4AFDEE16292E8B9C00936A96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDEE15292E8B9C00936A96 /* Extensions.swift */; };
+		5B56C0E729AB8642006A17BB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56C0E629AB8642006A17BB /* SettingsView.swift */; };
+		5B714B2529AC11E0002B04F3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B714B2429AC11E0002B04F3 /* Font.swift */; };
+		5B714B2729AC1BF4002B04F3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B714B2629AC1BF4002B04F3 /* Settings.swift */; };
+		5B714B2A29AC1D58002B04F3 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B714B2929AC1D58002B04F3 /* LaunchAtLogin */; };
+		5BE460B029AC0EF600D1D0E9 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE460AF29AC0EF600D1D0E9 /* Defaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A0ED9442899B4EC00C64485 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4A0ED9462899B95000C64485 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		4A16F142292E858700FE994A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A1A0715289629680023B5AE /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
-		4A2BD5182926CAF70085E372 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		4A88A6AF2896290000F63365 /* CenterMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CenterMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A88A6B22896290000F63365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A88A6B42896290000F63365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A88A6B72896290000F63365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4A88A6B92896290000F63365 /* CenterMouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CenterMouse.entitlements; sourceTree = "<group>"; };
 		4AA764142896DC61000C6A49 /* MouseMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseMover.swift; sourceTree = "<group>"; };
-		4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
 		4AFDEE15292E8B9C00936A96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5B56C0E629AB8642006A17BB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5B714B2429AC11E0002B04F3 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5B714B2629AC1BF4002B04F3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5BC6600429ACFB820078B87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE9B9062896EDD600F8100D /* Defaults in Frameworks */,
-				4AE9B9092896EDE700F8100D /* Preferences in Frameworks */,
+				5B714B2A29AC1D58002B04F3 /* LaunchAtLogin in Frameworks */,
+				5BE460B029AC0EF600D1D0E9 /* Defaults in Frameworks */,
 				4AE9B9002896EDAB00F8100D /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +61,7 @@
 				4A88A6B02896290000F63365 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		4A88A6B02896290000F63365 /* Products */ = {
 			isa = PBXGroup;
@@ -81,8 +83,10 @@
 		4AA764162896DCDC000C6A49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BC6600429ACFB820078B87A /* Info.plist */,
 				4A88A6B42896290000F63365 /* Assets.xcassets */,
 				4A88A6B62896290000F63365 /* MainMenu.xib */,
+				4A88A6B92896290000F63365 /* CenterMouse.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -90,25 +94,16 @@
 		4AA764172896DCDF000C6A49 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4AF0685D2905CD1D0088F8A9 /* Preferences */,
 				4A88A6B22896290000F63365 /* AppDelegate.swift */,
-				4A0ED9462899B95000C64485 /* LocalizedStrings.swift */,
-				4AFDEE15292E8B9C00936A96 /* Extensions.swift */,
-				4A2BD5182926CAF70085E372 /* Font.swift */,
+				5B714B2629AC1BF4002B04F3 /* Settings.swift */,
+				5B56C0E629AB8642006A17BB /* SettingsView.swift */,
 				4A1A0715289629680023B5AE /* EventMonitor.swift */,
 				4AA764142896DC61000C6A49 /* MouseMover.swift */,
-				4A88A6B92896290000F63365 /* CenterMouse.entitlements */,
+				4AFDEE15292E8B9C00936A96 /* Extensions.swift */,
+				5B714B2429AC11E0002B04F3 /* Font.swift */,
+				4A0ED9462899B95000C64485 /* LocalizedStrings.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		4AF0685D2905CD1D0088F8A9 /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				4A0ED9442899B4EC00C64485 /* Settings.swift */,
-				4AF0685E2905CD2F0088F8A9 /* GeneralPreferencesView.swift */,
-			);
-			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,8 +125,8 @@
 			name = CenterMouse;
 			packageProductDependencies = (
 				4AE9B8FF2896EDAB00F8100D /* KeyboardShortcuts */,
-				4AE9B9052896EDD600F8100D /* Defaults */,
-				4AE9B9082896EDE700F8100D /* Preferences */,
+				5BE460AF29AC0EF600D1D0E9 /* Defaults */,
+				5B714B2929AC1D58002B04F3 /* LaunchAtLogin */,
 			);
 			productName = CenterMouse;
 			productReference = 4A88A6AF2896290000F63365 /* CenterMouse.app */;
@@ -163,8 +158,8 @@
 			mainGroup = 4A88A6A62896290000F63365;
 			packageReferences = (
 				4AE9B8FE2896EDAB00F8100D /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
-				4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */,
-				4AE9B9072896EDE700F8100D /* XCRemoteSwiftPackageReference "Preferences" */,
+				5BE460AE29AC0EF600D1D0E9 /* XCRemoteSwiftPackageReference "Defaults" */,
+				5B714B2829AC1D58002B04F3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			productRefGroup = 4A88A6B02896290000F63365 /* Products */;
 			projectDirPath = "";
@@ -217,12 +212,12 @@
 			files = (
 				4AA764152896DC61000C6A49 /* MouseMover.swift in Sources */,
 				4A88A6B32896290000F63365 /* AppDelegate.swift in Sources */,
-				4A2BD5192926CAF70085E372 /* Font.swift in Sources */,
+				5B714B2729AC1BF4002B04F3 /* Settings.swift in Sources */,
 				4AFDEE16292E8B9C00936A96 /* Extensions.swift in Sources */,
+				5B714B2529AC11E0002B04F3 /* Font.swift in Sources */,
+				5B56C0E729AB8642006A17BB /* SettingsView.swift in Sources */,
 				4A1A0716289629680023B5AE /* EventMonitor.swift in Sources */,
 				4A0ED9472899B95100C64485 /* LocalizedStrings.swift in Sources */,
-				4AF0685F2905CD2F0088F8A9 /* GeneralPreferencesView.swift in Sources */,
-				4A0ED9452899B4EC00C64485 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -359,26 +354,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CenterMouse/Sources/CenterMouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CenterMouse/Resources/CenterMouse.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CenterMouse/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.CenterMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,26 +383,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CenterMouse/Sources/CenterMouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CenterMouse/Resources/CenterMouse.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CenterMouse/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.CenterMouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -451,20 +440,20 @@
 				minimumVersion = 1.7.1;
 			};
 		};
-		4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */ = {
+		5B714B2829AC1D58002B04F3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		5BE460AE29AC0EF600D1D0E9 /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.3.0;
-			};
-		};
-		4AE9B9072896EDE700F8100D /* XCRemoteSwiftPackageReference "Preferences" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Preferences";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.0;
+				minimumVersion = 7.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -475,15 +464,15 @@
 			package = 4AE9B8FE2896EDAB00F8100D /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
 		};
-		4AE9B9052896EDD600F8100D /* Defaults */ = {
+		5B714B2929AC1D58002B04F3 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4AE9B9042896EDD600F8100D /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = Defaults;
+			package = 5B714B2829AC1D58002B04F3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
 		};
-		4AE9B9082896EDE700F8100D /* Preferences */ = {
+		5BE460AF29AC0EF600D1D0E9 /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4AE9B9072896EDE700F8100D /* XCRemoteSwiftPackageReference "Preferences" */;
-			productName = Preferences;
+			package = 5BE460AE29AC0EF600D1D0E9 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
