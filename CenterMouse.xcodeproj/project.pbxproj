@@ -36,6 +36,7 @@
 		5B56C0E629AB8642006A17BB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5B714B2429AC11E0002B04F3 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5B714B2629AC1BF4002B04F3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5BC6600429ACFB820078B87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +83,10 @@
 		4AA764162896DCDC000C6A49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BC6600429ACFB820078B87A /* Info.plist */,
 				4A88A6B42896290000F63365 /* Assets.xcassets */,
 				4A88A6B62896290000F63365 /* MainMenu.xib */,
+				4A88A6B92896290000F63365 /* CenterMouse.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -99,7 +102,6 @@
 				4AFDEE15292E8B9C00936A96 /* Extensions.swift */,
 				5B714B2429AC11E0002B04F3 /* Font.swift */,
 				4A0ED9462899B95000C64485 /* LocalizedStrings.swift */,
-				4A88A6B92896290000F63365 /* CenterMouse.entitlements */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -352,8 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CenterMouse/Sources/CenterMouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CenterMouse/Resources/CenterMouse.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +363,7 @@
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CenterMouse/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -381,8 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CenterMouse/Sources/CenterMouse.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CenterMouse/Resources/CenterMouse.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -391,6 +392,7 @@
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CenterMouse/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
