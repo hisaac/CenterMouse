@@ -436,24 +436,24 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.1;
+				kind = exactVersion;
+				version = 1.10.0;
 			};
 		};
 		5B714B2829AC1D58002B04F3 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
 		5BE460AE29AC0EF600D1D0E9 /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.1.0;
+				kind = exactVersion;
+				version = 7.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

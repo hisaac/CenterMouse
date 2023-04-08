@@ -15,7 +15,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        run: |
-          xcrun xcodebuild build \
-            -scheme "CenterMouse" \
-            CODE_SIGN_IDENTITY=
+        run: make build
