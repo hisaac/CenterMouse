@@ -4,6 +4,7 @@ import Defaults
 extension Defaults.Keys {
 	static let hideDockIcon = Key<Bool>("hideDockIcon", default: false)
 	static let monitorSystemEvents = Key<Bool>("monitorSystemEvents", default: true)
+	static let firstTimeAppLaunched = Key<Bool>("firstTimeAppLaunched", default: true)
 }
 
 enum Settings {
