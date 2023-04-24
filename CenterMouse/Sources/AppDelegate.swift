@@ -50,6 +50,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		openSettingsWindow()
 	}
 
+	@IBAction func windowMenuMainWindowItemActivated(_ sender: NSMenuItem) {
+		openSettingsWindow()
+	}
+
 	func openSettingsWindow() {
 		// Works around an annoyance where the app always comes to the foreground when
 		// being previewed in Xcode's SwiftUI Canvas.
