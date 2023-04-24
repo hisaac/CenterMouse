@@ -10,20 +10,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 	private var eventMonitor = EventMonitor()
 
-	/// Whether or not the app is relaunching after it has been launched and quit before
-	///
-	/// We track this to know whether or not to open the Settings window. If this is a
-	/// fresh relaunch, we _don't_ want to open the Settings window right away.
-	private var isRelaunch = false
-
-	func applicationWillFinishLaunching(_ notification: Notification) {
-		if Defaults[.firstTimeAppLaunched] {
-			Defaults[.firstTimeAppLaunched] = false
-		} else {
-			isRelaunch = true
-		}
-	}
-
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		window = NSWindow(
 			contentRect: NSZeroRect,
@@ -35,10 +21,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		window.title = "CenterMouse"
 		window.contentView = NSHostingView(rootView: SettingsView())
 		windowController = NSWindowController(window: window)
+
+
+		if launchedAsLogInItem == false {
+			openSettingsWindow()
+		}
 	}
 
-	func applicationDidBecomeActive(_ notification: Notification) {
-		openSettingsWindow()
+	private var launchedAsLogInItem: Bool {
+		// source: https://stackoverflow.com/a/19890943/4118208
+		guard let event = NSAppleEventManager.shared().currentAppleEvent else { return false }
+		return
+			event.eventID == kAEOpenApplication &&
+			event.paramDescriptor(forKeyword: keyAEPropData)?.enumCodeValue == keyAELaunchedAsLogInItem
 	}
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -60,15 +55,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		guard
 			ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1"
 		else {
-			return
-		}
-
-		// We only need to check whether this is a relaunch the first time this method
-		// is called (by `applicationDidBecomeActive(_:)`). After that, we'll want to
-		// open the Settings window whenever this method is called, so we set the value
-		// to `false`.
-		guard isRelaunch == false else {
-			isRelaunch = false
 			return
 		}
 
