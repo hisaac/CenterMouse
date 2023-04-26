@@ -19,9 +19,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		)
 
 		window.title = "CenterMouse"
+
+		// Excluding this from the Window menu so that it can be manually added.
+		// This is being done to comply with an App Review requirement.
+		window.isExcludedFromWindowsMenu = true
+
 		window.contentView = NSHostingView(rootView: SettingsView())
 		windowController = NSWindowController(window: window)
-
 
 		if launchedAsLogInItem == false {
 			openSettingsWindow()

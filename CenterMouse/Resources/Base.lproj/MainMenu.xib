@@ -330,17 +330,17 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="tCf-wr-CME"/>
-                            <menuItem title="Main Window" id="nKL-96-cSG" userLabel="Main Window">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="windowMenuMainWindowItemActivated:" target="Voe-Tx-rLC" id="IpI-CD-UCE"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                             <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="DRN-fu-gQh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                            <menuItem title="CenterMouse" id="nKL-96-cSG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="windowMenuMainWindowItemActivated:" target="Voe-Tx-rLC" id="IpI-CD-UCE"/>
                                 </connections>
                             </menuItem>
                         </items>
