@@ -8,3 +8,7 @@ build:
 	@echo "Building project..."
 	@$(scripts_dir)build.sh
 .PHONY: build
+
+clean:
+	rm -rf $(project_dir)DerivedData
+.PHONY: clean
