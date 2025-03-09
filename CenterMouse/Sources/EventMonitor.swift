@@ -1,9 +1,9 @@
 import Cocoa
-import Combine
+@preconcurrency import Combine
 import Defaults
 import KeyboardShortcuts
 
-final class EventMonitor {
+@MainActor final class EventMonitor {
 	var subscriptions = Set<AnyCancellable>()
 
 	init() {

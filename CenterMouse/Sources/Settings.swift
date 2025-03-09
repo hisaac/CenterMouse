@@ -7,7 +7,7 @@ extension Defaults.Keys {
 }
 
 enum Settings {
-	static func setActivationPolicy(hideDockIcon: Bool = Defaults[.hideDockIcon]) {
+	@MainActor static func setActivationPolicy(hideDockIcon: Bool = Defaults[.hideDockIcon]) {
 		NSApp.setActivationPolicy(hideDockIcon ? .accessory : .regular)
 		NSApp.activate(ignoringOtherApps: true)
 	}

@@ -1,6 +1,6 @@
 import Cocoa
 
-enum LocalizedStrings {
+@MainActor enum LocalizedStrings {
 	static let titleFont = NSFont.title3
 	static let headlineFont = NSFont.headline.boldAndItalic()
 
@@ -71,5 +71,10 @@ enum LocalizedStrings {
 			NSAttributedString(string: "\(name)\n", attributes: [.link: url])
 		)
 		return openSourceLibraryString
+	}
+	
+	// Swift 6 compatibility - overload for string URLs
+	private static func openSourceLibrary(name: String, url: String) -> NSAttributedString {
+		openSourceLibrary(name: name, url: URL.fromString(url))
 	}
 }
