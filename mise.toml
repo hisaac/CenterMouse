@@ -1,0 +1,20 @@
+[settings]
+activate_aggressive = true
+experimental = true
+
+[env]
+PROJECT_ROOT = "{{config_root}}"
+
+[tools]
+xcbeautify = "latest"
+xcodes = "latest"
+
+[tasks.bootstrap]
+run = "xcodes select 26.1.1"
+
+[tasks.build]
+depends = ["bootstrap"]
+run = "scripts/build.bash"
+
+[tasks.clean]
+run = "rm -rf DerivedData"
