@@ -2,18 +2,17 @@
 activate_aggressive = true
 experimental = true
 
+[plugins]
+xcode = "https://github.com/hisaac/mise-xcode.git#v1.0.0"
+
 [env]
+_.xcode.version = "26.5.0"
 PROJECT_ROOT = "{{config_root}}"
 
 [tools]
 xcbeautify = "latest"
-xcodes = "latest"
-
-[tasks.bootstrap]
-run = "xcodes select 26.1.1"
 
 [tasks.build]
-depends = ["bootstrap"]
 run = "scripts/build.bash"
 
 [tasks.clean]
