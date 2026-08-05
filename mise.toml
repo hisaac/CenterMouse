@@ -7,11 +7,14 @@ xcode = "https://github.com/hisaac/mise-xcode.git#v1.0.0"
 
 [env]
 _.xcode.version = "26.6.0"
-PROJECT_ROOT = "{{config_root}}"
+PROJECT_ROOT = "{{ config_root }}"
 
 [tools]
 xcbeautify = "latest"
 "github:mono0926/LicensePlist" = "3.28.0"
+
+[tasks.open]
+run = "xed ."
 
 [tasks.build]
 run = "scripts/build.bash"
