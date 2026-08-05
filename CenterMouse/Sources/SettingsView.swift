@@ -37,13 +37,12 @@ struct SettingsView: View {
 			VStack(alignment: .trailing) {
 				HStack {
 					Spacer()
+					// No options: credits come from Credits.rtf in the bundle, which the standard
+					// panel picks up on its own. That keeps this button and the "About CenterMouse"
+					// menu item, which is wired straight to the standard action in MainMenu.xib,
+					// showing exactly the same thing.
 					Button("About") {
-						NSApp.orderFrontStandardAboutPanel(
-							options: [
-								.applicationIcon: NSWorkspace.shared.icon(forFile: Bundle.main.bundlePath),
-								.credits: LocalizedStrings.credits
-							]
-						)
+						NSApp.orderFrontStandardAboutPanel(nil)
 					}
 					Button("Quit") {
 						NSApp.terminate(nil)

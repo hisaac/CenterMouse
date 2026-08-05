@@ -64,11 +64,40 @@ The About panel credited [Preferences](https://github.com/sindresorhus/Preferenc
 not been a dependency for some time, and omitted LaunchAtLogin entirely. Corrected to match the
 three packages actually in use.
 
+### The About panel showed different things depending on how it was opened
+
+The "About" button in the settings window called `orderFrontStandardAboutPanel(options:)` and
+passed credits. The "About CenterMouse" item in the menu bar is wired in `MainMenu.xib` straight
+to the standard `orderFrontStandardAboutPanel:` action, which takes no options — so it showed a
+bare panel with no credits at all. Two different About experiences from one app.
+
+Fixed by moving the credits out of code and into `CenterMouse/Resources/Credits.rtf`. The
+standard About panel picks that file up automatically, with no options dictionary and no code,
+so both entry points now show the same thing. `SettingsView` calls
+`NSApp.orderFrontStandardAboutPanel(nil)` and `LocalizedStrings.swift` is deleted — 77 lines of
+`NSMutableAttributedString` assembly replaced by a resource file.
+
+**Verified:** both paths now produce a 284×318 panel with identical text and all four links
+present as live accessibility elements. The menu bar path previously produced a bare 284×170
+panel.
+
+One trap worth recording, because it is silent and easy to hit. The RTF was generated from an
+`NSAttributedString` rather than hand-written, to get link fields and escaping right. The first
+attempt built that string with `NSFont.preferredFont(forTextStyle:)`, which serializes *private*
+system font names such as `.SFNS-BoldItalic` into the RTF font table. Those names cannot be
+resolved on read, and CoreText silently substitutes Times New Roman — the panel would have
+rendered the role headings in a serif face with no error anywhere. The generator therefore uses
+public font names (`HelveticaNeue`, `HelveticaNeue-Medium`, `HelveticaNeue-BoldItalic`), and the
+round-trip was verified by reading the file back and confirming every font resolves to the one
+requested. If the credits are ever regenerated, keep that constraint.
+
 ## Dead code removal
 
 - **`Font.swift` (150 lines)** — a vendored set of `NSFont` convenience extensions, of which
-  exactly two were used: `NSFont.title3` and `NSFont.headline.boldAndItalic()`. Both are now
-  computed inline in `LocalizedStrings`, and the file is gone.
+  exactly two were used: `NSFont.title3` and `NSFont.headline.boldAndItalic()`. The file is gone;
+  its two remaining uses disappeared entirely when credits moved to `Credits.rtf`.
+- **`LocalizedStrings.swift` (77 lines)** — built the credits as an attributed string at runtime.
+  Replaced by the `Credits.rtf` resource described above.
 - **`Extensions.swift`** — existed only so the credits could pass string literals where `URL`
   was expected. It declared a retroactive conformance of `Foundation.URL` to
   `ExpressibleByStringLiteral`, which was the source of the only compiler warning in the
@@ -84,7 +113,8 @@ three packages actually in use.
 - **`print()` → `OSLog`** — the app logged to stdout in release builds. Now uses a `Logger` with
   the bundle identifier as subsystem.
 
-Net effect on the app target: **−160 lines**, and the build is now free of project-owned warnings.
+Net effect on the app target: **−154 lines of Swift** (244 deletions against 90 insertions), plus
+a small RTF resource, and the build is now free of project-owned warnings.
 
 ## Build tooling
 
@@ -123,12 +153,11 @@ container, so that plist was entirely a test artifact.
 
 ## Known issues not addressed
 
-- **The About panel is inconsistent.** The "About" button in the settings window calls
-  `orderFrontStandardAboutPanel(options:)` with credits and an icon. The "About CenterMouse"
-  item in the menu bar is wired in `MainMenu.xib` to the standard `orderFrontStandardAboutPanel:`
-  action with *no* options, so it shows a bare panel with no credits at all. Two different
-  About experiences depending on how you get there. Fixing this means either pointing the menu
-  item at an app delegate action or dropping the credits.
+- **The credits list is still maintained by hand.** Moving to `Credits.rtf` fixed the
+  inconsistency but not the underlying drift — that is how `Preferences` stayed credited long
+  after it stopped being a dependency. [LicensePlist](https://github.com/mono0926/LicensePlist)
+  can generate acknowledgements from the actual SPM dependency graph via a build-tool plugin,
+  which would prevent the class of bug rather than correcting one instance of it.
 - **Dependencies are well behind.** Defaults 7.1.0 → 9.0.9, KeyboardShortcuts 1.10.0 → 3.0.1,
   LaunchAtLogin-Modern 1.0.0 → 1.1.0. All pinned to `exactVersion`. Two are major-version jumps
   with API breaks; deliberately out of scope here.
