@@ -7,6 +7,7 @@ the branch it is being read on:
 
 - `fixes-and-cleanup` — correctness fixes, dead code removal, build tooling.
 - `update-dependencies` — the Swift package updates below.
+- `swift-6-language-mode` — the language mode change below.
 
 The original pass was deliberately limited to correctness fixes, dead code removal, and build
 tooling, and added no new features. That still holds: nothing here changes what the app does.
@@ -259,10 +260,34 @@ They do. A shortcut written in the 1.x storage format is still read by 3.x and d
 in the recorder, so existing users will not silently lose their hotkey. Verified against a running
 build, along with the hotkey and system event paths both still centering the pointer.
 
-## Known issues not addressed
+## Swift 6 language mode
 
-- **Swift 5 language mode**, no strict concurrency checking, on code that touches `NSApp` from
-  Combine sinks.
+*Branch: `swift-6-language-mode`.*
+
+`SWIFT_VERSION` moves from 5.0 to 6.0, so the target builds with full strict concurrency checking
+rather than none. Confirmed active rather than assumed: `EFFECTIVE_SWIFT_VERSION = 6` in the
+resolved build settings.
+
+Most of the work was already paid for by the main actor annotations that KeyboardShortcuts 3
+required. What remained was `Settings`, which touched `NSApp` from a nonisolated static method.
+That is now `@MainActor`, and the `hideDockIcon` subscription hops to the main actor rather than
+assuming the publisher emits there, which it makes no promise about.
+
+**Those four diagnostics were warnings, not errors**, because AppKit is imported as preconcurrency.
+Swift 6 mode would have "passed" with them present and nothing would have drawn attention to them.
+They described a real threading assumption, so they were fixed rather than banked.
+
+`MouseMover` needed no changes, and that conclusion was tested rather than inferred from the
+absence of a diagnostic — silence can equally mean preconcurrency suppression. Typechecking a
+nonisolated `NSScreen.screens` call under `-swift-version 6` confirms `NSScreen` genuinely is not
+main actor isolated in the macOS 26 SDK.
+
+Debug and Release both build with no concurrency warnings. A running build still centers the
+pointer from both the hotkey and the system event path, toggles the Dock icon through the new
+actor hop (verified via the process's `background only` flag flipping and back), and persists its
+preferences.
+
+## Known issues not addressed
 - **No tests and no linter.** If a shell linter is ever added, `declare -r arch="$(uname -m)"`
   in `scripts/build.bash` will trip ShellCheck SC2155 (declaration and assignment combined masks
   the command's exit status). Kept as-is to match the script's existing style.
