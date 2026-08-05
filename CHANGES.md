@@ -1,8 +1,15 @@
 # Maintenance pass — August 2026
 
-Notes on the changes in the `fixes-and-cleanup` branch: what changed, why, and how each
-change was verified. Scope was deliberately limited to correctness fixes, dead code removal,
-and build tooling. No new features, no dependency upgrades, no language mode changes.
+What changed, why, and how each change was verified.
+
+The work is split across stacked branches. This document covers everything up to and including
+the branch it is being read on:
+
+- `fixes-and-cleanup` — correctness fixes, dead code removal, build tooling.
+- `update-dependencies` — the Swift package updates below.
+
+The original pass was deliberately limited to correctness fixes, dead code removal, and build
+tooling, and added no new features. That still holds: nothing here changes what the app does.
 
 ## Bug fixes
 
@@ -181,21 +188,6 @@ builds flaky.
 `arm64` and `x86_64`. The architecture is now resolved from `uname -m` rather than hard-coded,
 which silences the warning without breaking destination matching on an Intel host or CI runner.
 
-## How this was verified
-
-Beyond compiling, the built app was launched and driven through the accessibility API:
-
-- Settings window renders correctly.
-- About panel credits confirmed by reading the live text view — the corrected library list,
-  the working `hisaac.net/CenterMouse` link, and the bold-italic role headings all render.
-- Pointer behavior tested by posting real `com.apple.screenIsLocked` distributed notifications
-  and sampling the cursor position before and after: it centers when the preference is on,
-  stays put when off, and the keyboard shortcut works in both cases.
-
-Test state was cleaned up afterward. The `software.level.CenterMouse` preferences domain was
-written to during testing and then removed; there was no installed App Store copy and no sandbox
-container, so that plist was entirely a test artifact.
-
 ### Raw xcodebuild output is kept
 
 `xcbeautify` is lossy by design, and the detail it drops is often exactly what is needed to
@@ -227,13 +219,50 @@ Note that `tuist` installed from the Homebrew cask hangs on launch on this machi
 past dynamic linking, with no output and no CPU use, and it is not Gatekeeper or the quarantine
 flag. The same version installed through mise (`mise install tuist`) works, and was used instead.
 
+## How this was verified
+
+Beyond compiling, the built app was launched and driven through the accessibility API:
+
+- Settings window renders correctly.
+- About panel credits confirmed by reading the live text view — the corrected library list,
+  the working `hisaac.net/CenterMouse` link, and the bold-italic role headings all render.
+- Pointer behavior tested by posting real `com.apple.screenIsLocked` distributed notifications
+  and sampling the cursor position before and after: it centers when the preference is on,
+  stays put when off, and the keyboard shortcut works in both cases.
+
+Test state was cleaned up afterward. The `software.level.CenterMouse` preferences domain was
+written to during testing and then removed; there was no installed App Store copy and no sandbox
+container, so that plist was entirely a test artifact.
+
+## Dependency updates
+
+*Branch: `update-dependencies`.*
+
+| | Was | Now |
+|---|---|---|
+| Defaults | 7.1.0 | 9.0.9 |
+| KeyboardShortcuts | 1.10.0 | 3.0.1 |
+| LaunchAtLogin-Modern | 1.0.0 | 1.1.0 |
+
+Two are major-version jumps. All three still support macOS 13, checked against each package's
+`Package.swift` before starting, so the deployment target is unchanged — LaunchAtLogin's
+`.macOS(.v13)` sits exactly on the existing floor. Defaults 9 brings in swift-syntax as a
+transitive dependency, which the generated credits picked up without anyone touching them.
+
+One code change was required. KeyboardShortcuts 3 isolates `onKeyUp` to the main actor, so
+`EventMonitor` is now `@MainActor`, and `AppDelegate` with it, since it constructs the monitor
+during launch. Both were main actor bound in practice already: AppKit delegates are called on the
+main thread, and the monitor only registers hotkeys and observes notifications.
+
+**The compatibility risk worth checking on a 1.x → 3.x jump is whether stored shortcuts survive.**
+They do. A shortcut written in the 1.x storage format is still read by 3.x and displays correctly
+in the recorder, so existing users will not silently lose their hotkey. Verified against a running
+build, along with the hotkey and system event paths both still centering the pointer.
+
 ## Known issues not addressed
 
-- **Dependencies are well behind.** Defaults 7.1.0 → 9.0.9, KeyboardShortcuts 1.10.0 → 3.0.1,
-  LaunchAtLogin-Modern 1.0.0 → 1.1.0. All pinned to `exactVersion`. Two are major-version jumps
-  with API breaks; deliberately out of scope here.
 - **Swift 5 language mode**, no strict concurrency checking, on code that touches `NSApp` from
-  Combine sinks. Project format is `objectVersion = 56` (Xcode 14 era).
+  Combine sinks.
 - **No tests and no linter.** If a shell linter is ever added, `declare -r arch="$(uname -m)"`
   in `scripts/build.bash` will trip ShellCheck SC2155 (declaration and assignment combined masks
   the command's exit status). Kept as-is to match the script's existing style.
