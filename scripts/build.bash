@@ -11,8 +11,14 @@ if [[ "${DEBUG:-}" == "true" || "${TRACE:-}" == true || "${RUNNER_DEBUG:-}" == "
 fi
 
 function main() {
+	# "platform=macOS" alone matches both the arm64 and x86_64 destinations for this Mac, which
+	# makes xcodebuild warn and silently pick the first. Resolving the arch here keeps the choice
+	# explicit while still doing the right thing on both Apple silicon and Intel machines.
+	declare -r arch="$(uname -m)"
+
 	xcrun xcodebuild build \
 		-scheme "CenterMouse" \
+		-destination "platform=macOS,arch=${arch}" \
 		-derivedDataPath "${PROJECT_ROOT}/DerivedData" \
 		CODE_SIGN_IDENTITY= | xcbeautify
 }

@@ -6,7 +6,7 @@ experimental = true
 xcode = "https://github.com/hisaac/mise-xcode.git#v1.0.0"
 
 [env]
-_.xcode.version = "26.5.0"
+_.xcode.version = "26.6.0"
 PROJECT_ROOT = "{{config_root}}"
 
 [tools]
