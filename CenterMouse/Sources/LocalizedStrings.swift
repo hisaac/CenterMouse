@@ -1,11 +1,16 @@
 import Cocoa
 
 enum LocalizedStrings {
-	static let titleFont = NSFont.title3
-	static let headlineFont = NSFont.headline.boldAndItalic()
+	private static let titleFont = NSFont.preferredFont(forTextStyle: .title3)
 
-	static var credits: NSAttributedString = {
-		var creditsString = NSMutableAttributedString()
+	private static let headlineFont: NSFont = {
+		let headline = NSFont.preferredFont(forTextStyle: .headline)
+		let descriptor = headline.fontDescriptor.withSymbolicTraits([.bold, .italic])
+		return NSFont(descriptor: descriptor, size: 0) ?? headline
+	}()
+
+	static let credits: NSAttributedString = {
+		let creditsString = NSMutableAttributedString()
 
 		// MARK: - More Info Link
 		creditsString.append(
@@ -40,36 +45,33 @@ enum LocalizedStrings {
 			name: "KeyboardShortcuts", url: "https://github.com/sindresorhus/KeyboardShortcuts"
 		))
 		creditsString.append(openSourceLibrary(
-			name: "Preferences", url: "https://github.com/sindresorhus/Preferences"
+			name: "LaunchAtLogin", url: "https://github.com/sindresorhus/LaunchAtLogin-Modern"
 		))
 
 		return creditsString
 	}()
 
-	private static func creditedPerson(name: String, role: String, link: String? = nil) -> NSAttributedString {
+	private static func creditedPerson(name: String, role: String) -> NSAttributedString {
 		let creditedPersonString = NSMutableAttributedString()
 
 		creditedPersonString.append(
 			NSAttributedString(string: "\(role)\n", attributes: [.font: headlineFont])
 		)
-
-		let nameString: NSAttributedString
-		if let link, let url = URL(string: link) {
-			nameString = NSAttributedString(string: "    \(name)\n", attributes: [.link: url])
-		} else {
-			nameString = NSAttributedString(string: "    \(name)\n")
-		}
-		creditedPersonString.append(nameString)
+		creditedPersonString.append(
+			NSAttributedString(string: "    \(name)\n")
+		)
 
 		return creditedPersonString
 	}
 
-	private static func openSourceLibrary(name: String, url: URL) -> NSAttributedString {
+	private static func openSourceLibrary(name: String, url: String) -> NSAttributedString {
 		let openSourceLibraryString = NSMutableAttributedString()
+
 		openSourceLibraryString.append(NSAttributedString(string: "  \u{2022} "))
 		openSourceLibraryString.append(
 			NSAttributedString(string: "\(name)\n", attributes: [.link: url])
 		)
+
 		return openSourceLibraryString
 	}
 }

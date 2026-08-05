@@ -4,51 +4,49 @@ import Defaults
 import KeyboardShortcuts
 
 final class EventMonitor {
-	var subscriptions = Set<AnyCancellable>()
+	private var subscriptions = Set<AnyCancellable>()
 
 	init() {
 		NSWorkspace.shared.notificationCenter
 			.publisher(for: .deviceDidWake)
-			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
+			.sink(receiveValue: MouseMover.handleSystemEvent(_:))
 			.store(in: &subscriptions)
 
 		DistributedNotificationCenter.default()
 			.publisher(for: .screenIsLocked)
-			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
+			.sink(receiveValue: MouseMover.handleSystemEvent(_:))
 			.store(in: &subscriptions)
 
 		DistributedNotificationCenter.default()
 			.publisher(for: .screenIsUnlocked)
-			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
+			.sink(receiveValue: MouseMover.handleSystemEvent(_:))
 			.store(in: &subscriptions)
 
 		DistributedNotificationCenter.default()
 			.publisher(for: .screenSaverDidLaunch)
-			.sink(receiveValue: MouseMover.moveMouseToCenterOfMainScreen(_:))
+			.sink(receiveValue: MouseMover.handleSystemEvent(_:))
 			.store(in: &subscriptions)
 
+		// The keyboard shortcut deliberately bypasses the system event preference. If the user
+		// presses the shortcut, they want the pointer moved.
 		KeyboardShortcuts.onKeyUp(for: .centerMousePointer) {
-			MouseMover.moveMouseToCenterOfMainScreen()
+			MouseMover.centerMousePointer()
 		}
 
-		Defaults.publisher(.hideDockIcon)
+		// Only observe subsequent changes. The launch-time policy is applied by the app delegate,
+		// which knows whether activating the app would steal focus.
+		Defaults.publisher(.hideDockIcon, options: [])
 			.sink { Settings.setActivationPolicy(hideDockIcon: $0.newValue) }
 			.store(in: &subscriptions)
-	}
-
-	deinit {
-		subscriptions.forEach { $0.cancel() }
 	}
 }
 
 extension NSNotification.Name {
-	// These do work
 	static let deviceDidWake = NSWorkspace.didWakeNotification
 	static let screenIsLocked = NSNotification.Name("com.apple.screenIsLocked")
 	static let screenIsUnlocked = NSNotification.Name("com.apple.screenIsUnlocked")
 	static let screenSaverDidLaunch = NSNotification.Name("com.apple.screensaver.didlaunch")
 
-	// These don't seem to work
-	static let screenSaverDidStart = NSNotification.Name("com.apple.screensaver.didstart")
-	static let screenSaverDidStop = NSNotification.Name("com.apple.screensaver.didstop")
+	// Note: "com.apple.screensaver.didstart" and "com.apple.screensaver.didstop" look like they
+	// belong here too, but neither is ever delivered in practice.
 }

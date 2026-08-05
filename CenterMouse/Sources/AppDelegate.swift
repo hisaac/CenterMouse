@@ -27,6 +27,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		window.contentView = NSHostingView(rootView: SettingsView())
 		windowController = NSWindowController(window: window)
 
+		// Apply the stored preference without activating, so launching as a login item stays
+		// out of the way. `openSettingsWindow` activates the app when that's actually wanted.
+		Settings.setActivationPolicy(activate: false)
+
 		if launchedAsLogInItem == false {
 			openSettingsWindow()
 		}
