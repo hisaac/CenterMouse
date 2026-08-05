@@ -3,6 +3,7 @@ import Defaults
 import SwiftUI
 
 @main
+@MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
 
 	private var window: NSWindow!

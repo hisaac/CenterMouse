@@ -3,6 +3,9 @@ import Combine
 import Defaults
 import KeyboardShortcuts
 
+/// Main actor isolated because KeyboardShortcuts registers hotkeys on the main actor, and because
+/// this is only ever constructed by the app delegate during launch.
+@MainActor
 final class EventMonitor {
 	private var subscriptions = Set<AnyCancellable>()
 
