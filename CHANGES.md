@@ -196,6 +196,37 @@ Test state was cleaned up afterward. The `software.level.CenterMouse` preference
 written to during testing and then removed; there was no installed App Store copy and no sandbox
 container, so that plist was entirely a test artifact.
 
+### Raw xcodebuild output is kept
+
+`xcbeautify` is lossy by design, and the detail it drops is often exactly what is needed to
+diagnose a failure — the sandbox denials behind the credits build phase were invisible in the
+pretty output. The build now tees the raw log to `.artifacts/xcodebuild` (gitignored) before
+piping to `xcbeautify`.
+
+`pipefail` is what makes this safe. `tee` always succeeds, so without it a failing `xcodebuild`
+would be masked by the exit status of the last command in the pipeline. Verified that a non-zero
+status still propagates through the added stage.
+
+### Build settings moved into xcconfig files
+
+Extracted with `tuist migration settings-to-xcconfig` into `Config/Project.xcconfig` and
+`Config/CenterMouse.xcconfig`, wired up as the `baseConfigurationReference` for all four build
+configurations. The corresponding `buildSettings` dictionaries in `project.pbxproj` are now empty,
+which matters: anything left in them would silently override the xcconfig.
+
+Settings that differ per configuration are preserved with `[config=Debug]` / `[config=Release]`
+qualifiers, so the Debug/Release split survives intact.
+
+**Verified** by diffing `xcodebuild -showBuildSettings` for both configurations before and after.
+Of ~600 resolved settings, three differ, and all three are settings that were previously unset and
+now resolve to the stock Xcode default for that configuration — `ENABLE_NS_ASSERTIONS=YES` and
+`SWIFT_COMPILATION_MODE=singlefile` in Debug, `GCC_OPTIMIZATION_LEVEL=s` in Release. Those were
+the effective values before; they were simply not listed. Both configurations build.
+
+Note that `tuist` installed from the Homebrew cask hangs on launch on this machine — it never gets
+past dynamic linking, with no output and no CPU use, and it is not Gatekeeper or the quarantine
+flag. The same version installed through mise (`mise install tuist`) works, and was used instead.
+
 ## Known issues not addressed
 
 - **Dependencies are well behind.** Defaults 7.1.0 → 9.0.9, KeyboardShortcuts 1.10.0 → 3.0.1,

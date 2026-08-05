@@ -10,17 +10,25 @@ if [[ "${DEBUG:-}" == "true" || "${TRACE:-}" == true || "${RUNNER_DEBUG:-}" == "
 	set -o xtrace # Trace the execution of the script (debug)
 fi
 
+# xcbeautify is lossy by design, so the raw log is kept for when the pretty output is not enough
+# to diagnose a failure. Overwritten each build; see .artifacts in .gitignore.
+declare -r log_file="${PROJECT_ROOT}/.artifacts/xcodebuild"
+
 function main() {
 	# "platform=macOS" alone matches both the arm64 and x86_64 destinations for this Mac, which
 	# makes xcodebuild warn and silently pick the first. Resolving the arch here keeps the choice
 	# explicit while still doing the right thing on both Apple silicon and Intel machines.
 	declare -r arch="$(uname -m)"
 
+	mkdir -p "${log_file%/*}"
+
+	# `pipefail` is what makes this safe: tee always succeeds, so without it a failing xcodebuild
+	# would be masked by the exit status of the last command in the pipeline.
 	xcrun xcodebuild build \
 		-scheme "CenterMouse" \
 		-destination "platform=macOS,arch=${arch}" \
 		-derivedDataPath "${PROJECT_ROOT}/DerivedData" \
-		CODE_SIGN_IDENTITY= | xcbeautify
+		CODE_SIGN_IDENTITY= 2>&1 | tee "${log_file}" | xcbeautify
 }
 
 trap handle_exit EXIT
