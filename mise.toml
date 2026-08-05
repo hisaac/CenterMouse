@@ -11,9 +11,14 @@ PROJECT_ROOT = "{{config_root}}"
 
 [tools]
 xcbeautify = "latest"
+"github:mono0926/LicensePlist" = "3.28.0"
 
 [tasks.build]
 run = "scripts/build.bash"
+
+[tasks.credits]
+description = "Regenerate the About panel credits from the resolved dependency graph"
+run = "scripts/generate-credits.bash"
 
 [tasks.clean]
 run = "rm -rf DerivedData"

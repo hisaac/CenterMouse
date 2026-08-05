@@ -71,39 +71,37 @@ passed credits. The "About CenterMouse" item in the menu bar is wired in `MainMe
 to the standard `orderFrontStandardAboutPanel:` action, which takes no options — so it showed a
 bare panel with no credits at all. Two different About experiences from one app.
 
-Fixed by moving the credits out of code and into `CenterMouse/Resources/Credits.rtf`. The
-standard About panel picks that file up automatically, with no options dictionary and no code,
-so both entry points now show the same thing. `SettingsView` calls
-`NSApp.orderFrontStandardAboutPanel(nil)` and `LocalizedStrings.swift` is deleted — 77 lines of
-`NSMutableAttributedString` assembly replaced by a resource file.
+Fixed by moving the credits out of code and into a bundled credits file, which the standard About
+panel picks up automatically with no options dictionary and no code, so both entry points now
+show the same thing. `SettingsView` calls `NSApp.orderFrontStandardAboutPanel(nil)` and
+`LocalizedStrings.swift` is deleted — 77 lines of `NSMutableAttributedString` assembly replaced
+by a resource file. That file started as `Credits.rtf` and is now the generated `Credits.html`
+described under *Credits are now generated from the dependency graph* below.
 
 **Verified:** both paths now produce a 284×318 panel with identical text and all four links
 present as live accessibility elements. The menu bar path previously produced a bare 284×170
 panel.
 
-One trap worth recording, because it is silent and easy to hit. The RTF was generated from an
-`NSAttributedString` rather than hand-written, to get link fields and escaping right. The first
-attempt built that string with `NSFont.preferredFont(forTextStyle:)`, which serializes *private*
-system font names such as `.SFNS-BoldItalic` into the RTF font table. Those names cannot be
-resolved on read, and CoreText silently substitutes Times New Roman — the panel would have
-rendered the role headings in a serif face with no error anywhere. The generator therefore uses
-public font names (`HelveticaNeue`, `HelveticaNeue-Medium`, `HelveticaNeue-BoldItalic`), and the
-round-trip was verified by reading the file back and confirming every font resolves to the one
-requested. If the credits are ever regenerated, keep that constraint.
+One trap worth recording, because it is silent and easy to hit in either format. The original RTF
+was generated from an `NSAttributedString` built with `NSFont.preferredFont(forTextStyle:)`, which
+serializes *private* system font names such as `.SFNS-BoldItalic`. Those cannot be resolved on
+read, and CoreText silently substitutes Times New Roman — the panel would have rendered the role
+headings in a serif face with no error anywhere. The same applies to the HTML, which is parsed by
+the `NSAttributedString` importer rather than a browser engine: it asks for `Helvetica Neue`, a
+family that actually resolves. Whatever the format, do not assume the system font survives a trip
+through a document format.
 
 ## Dead code removal
 
 - **`Font.swift` (150 lines)** — a vendored set of `NSFont` convenience extensions, of which
   exactly two were used: `NSFont.title3` and `NSFont.headline.boldAndItalic()`. The file is gone;
-  its two remaining uses disappeared entirely when credits moved to `Credits.rtf`.
+  its two remaining uses disappeared entirely when credits moved out of Swift.
 - **`LocalizedStrings.swift` (77 lines)** — built the credits as an attributed string at runtime.
-  Replaced by the `Credits.rtf` resource described above.
+  Replaced by the generated credits resource described above.
 - **`Extensions.swift`** — existed only so the credits could pass string literals where `URL`
   was expected. It declared a retroactive conformance of `Foundation.URL` to
   `ExpressibleByStringLiteral`, which was the source of the only compiler warning in the
-  project. Removed; the credits now use `String` link values throughout, which
-  `NSAttributedString.Key.link` accepts natively and which the "More info" link was already
-  relying on.
+  project. Removed along with the Swift-built credits that needed it.
 - **The "Print Build Settings to Log" build phase** — ran `export` and was marked always-out-of-date,
   forcing a script phase to run on every single build for output nobody was reading.
 - **Assorted** — a `deinit` that duplicated what `Set<AnyCancellable>` already does on
@@ -114,7 +112,7 @@ requested. If the credits are ever regenerated, keep that constraint.
   the bundle identifier as subsystem.
 
 Net effect on the app target: **−154 lines of Swift** (244 deletions against 90 insertions), plus
-a small RTF resource, and the build is now free of project-owned warnings.
+a generated HTML credits resource, and the build is now free of project-owned warnings.
 
 ## Build tooling
 
@@ -128,6 +126,53 @@ Bumped to `26.6.0`, the installed version. `DEVELOPER_DIR` now correctly resolve
 
 The plugin's `matches_fuzzy` compares only as many version components as you write, so `26.6`
 would work identically; three components were used to match the file's existing style.
+
+### Credits are now generated from the dependency graph
+
+The library list was maintained by hand, which is how `Preferences` stayed credited long after it
+stopped being a dependency. [LicensePlist](https://github.com/mono0926/LicensePlist) now generates
+it from the resolved packages.
+
+- Installed through mise's `github` backend (`"github:mono0926/LicensePlist" = "3.28.0"`), which
+  verifies GitHub artifact attestations on download.
+- `mise run credits` regenerates `CenterMouse/Resources/Credits.html` via
+  `scripts/generate-credits.bash`.
+- A "Generate Credits" Xcode build phase runs that task before the Sources and Resources phases,
+  so a build always ships current credits.
+
+The hand-maintained part (project link, the people) lives in the script; the libraries come from
+LicensePlist, including full license texts and links to each source repository.
+
+**Note on the output format.** LicensePlist's headline feature is a plist for `Settings.bundle`,
+which is iOS-only — nothing on macOS would ever read it. The output that actually surfaces here is
+HTML, because the About panel picks up `Credits.html` the same way it picked up `Credits.rtf`. The
+RTF is therefore replaced rather than supplemented.
+
+Four things had to be solved to make the build phase work, all worth knowing before touching it:
+
+1. **User script sandboxing.** `ENABLE_USER_SCRIPT_SANDBOXING` is on, and it initially denied the
+   phase even permission to *read* its own script. Fixed by declaring `inputPaths`
+   (the two scripts, `mise.toml`, `Package.resolved`) and `outputPaths` (`Credits.html`) rather
+   than by disabling the setting. That also lets Xcode do proper dependency analysis, so the phase
+   runs only when the dependency graph changes instead of on every build.
+2. **Where LicensePlist caches.** Its cache is what stops it hitting the network on every build,
+   but the sandbox only grants writes to declared outputs and the phase's own temp directory.
+   `DERIVED_FILE_DIR` is not usable — the sandbox will not even let the script create it — so the
+   cache lives under `TARGET_TEMP_DIR` when running inside Xcode.
+3. **LicensePlist credited itself.** Version 3.28.0 added `mise.toml` as a dependency source, so
+   putting LicensePlist in `[tools]` made it appear in the app's own acknowledgements. `mise.toml`
+   lists build tools, not things linked into the app, so the script points `--mise-path` at an
+   empty config. It must still be *named* `mise.toml` or LicensePlist rejects the path outright.
+4. **`--add-sources` emits malformed HTML.** It produces `<a href="URL"<h2>Name</h2></a>` — an
+   opening tag that is never closed. The compose step rewrites that into a proper linked heading.
+
+**Verified:** a clean build with no `Credits.html` present regenerates it and succeeds with
+sandboxing enabled; subsequent builds skip the phase entirely; touching `Package.resolved`
+re-triggers it; and the About panel renders all four links with fonts resolving correctly.
+
+CI passes `LICENSE_PLIST_GITHUB_TOKEN` from the workflow's `GITHUB_TOKEN`, because the license
+lookups hit the GitHub API and unauthenticated requests are rate limited hard enough to make
+builds flaky.
 
 ### Ambiguous build destination
 
@@ -153,11 +198,6 @@ container, so that plist was entirely a test artifact.
 
 ## Known issues not addressed
 
-- **The credits list is still maintained by hand.** Moving to `Credits.rtf` fixed the
-  inconsistency but not the underlying drift — that is how `Preferences` stayed credited long
-  after it stopped being a dependency. [LicensePlist](https://github.com/mono0926/LicensePlist)
-  can generate acknowledgements from the actual SPM dependency graph via a build-tool plugin,
-  which would prevent the class of bug rather than correcting one instance of it.
 - **Dependencies are well behind.** Defaults 7.1.0 → 9.0.9, KeyboardShortcuts 1.10.0 → 3.0.1,
   LaunchAtLogin-Modern 1.0.0 → 1.1.0. All pinned to `exactVersion`. Two are major-version jumps
   with API breaks; deliberately out of scope here.
