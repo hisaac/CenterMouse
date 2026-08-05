@@ -38,8 +38,15 @@ final class EventMonitor {
 
 		// Only observe subsequent changes. The launch-time policy is applied by the app delegate,
 		// which knows whether activating the app would steal focus.
+		//
+		// The publisher makes no promise about which thread it emits on, and changing the
+		// activation policy touches NSApp, so hop to the main actor rather than assume.
 		Defaults.publisher(.hideDockIcon, options: [])
-			.sink { Settings.setActivationPolicy(hideDockIcon: $0.newValue) }
+			.sink { change in
+				Task { @MainActor in
+					Settings.setActivationPolicy(hideDockIcon: change.newValue)
+				}
+			}
 			.store(in: &subscriptions)
 	}
 }
